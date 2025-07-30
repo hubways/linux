@@ -123,7 +123,7 @@ struct jump_entry {
 
 static inline unsigned long jump_entry_code(const struct jump_entry *entry)
 {
-	return (unsigned long)&entry->code + entry->code;
+	return (unsigned long)&entry->code + entry->code;  // 这里是获取nop指令的地址，因为code存储的是code地址距离nop指令的offset，所以它的地址加上code的值就是nop指令的地址
 }
 
 static inline unsigned long jump_entry_target(const struct jump_entry *entry)
